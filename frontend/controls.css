@@ -1,0 +1,74 @@
+/* Shared control layout. Load after visual themes so spacing stays consistent. */
+button {
+  max-inline-size:100%; min-inline-size:0; white-space:normal;
+  overflow-wrap:anywhere; line-height:1.5; vertical-align:middle;
+}
+:where(.actions,.page-vision-actions,.dialog-heading,.notebook-toolbar,
+  .notebook-navigation,.outline-history-row,.report-recent,.outline-material-row,
+  .admin-user-row,.toolbar,header) {
+  flex-wrap:wrap; gap:12px; min-width:0;
+}
+.actions,.page-vision-actions { display:flex; align-items:center; gap:12px; }
+.actions > *, .page-vision-actions > * { min-width:0; max-width:100%; }
+.actions > button,.page-vision-actions > button { margin:0; flex:0 1 auto; }
+.actions + .actions { margin-top:16px; }
+
+/* Standalone controls also need separation from fields and neighbouring buttons. */
+:where(form,section,article,details,.panel,.knowledge-book) > button {
+  margin:8px 8px 8px 0;
+}
+.panel form > button { margin-top:16px; }
+.learning-dialog[open] {
+  display:flex; flex-direction:column; align-items:stretch; gap:16px;
+  max-height:90dvh; overflow:auto;
+}
+.learning-dialog > * { flex-shrink:0; min-width:0; max-width:100%; margin-block:0; }
+.learning-dialog > button { align-self:flex-start; margin:0; }
+.learning-dialog > [role=status]:empty { display:none; }
+.learning-dialog form { display:grid; gap:16px; min-width:0; }
+.learning-dialog form > label { margin:0; }
+.learning-dialog form > button { justify-self:start; margin:0; }
+.learning-dialog :is(input,textarea,select) { min-width:0; max-width:100%; }
+.learning-dialog label > :is(input,textarea,select) { margin-top:8px; }
+.learning-dialog input[type=checkbox],.learning-dialog input[type=radio] { width:auto; }
+.learning-dialog fieldset { min-width:0; }
+.account { gap:12px; }
+.account > button { margin:0; }
+.notebook-toolbar > *, .dialog-heading > * { min-width:0; max-width:100%; }
+.question-numbers > button { flex:0 0 44px; }
+#upload-form > label,.mistake-filters > label { min-width:min(200px,100%); }
+.outline-material-row > button { flex-shrink:1; }
+@media(max-width:600px) {
+  dialog { padding:20px; max-width:calc(100% - 24px); }
+  .actions > button,.page-vision-actions > button { flex:1 1 160px; }
+  .account { flex-wrap:wrap; }
+  .account > button { flex:1 1 auto; }
+  .cards { grid-template-columns:minmax(0,1fr); }
+  .notebook-navigation > button { flex:1 1 120px; }
+}
+
+/* Sample blueprint and diagnostics */
+#blueprint-editor form { display:grid; gap:16px; }
+#blueprint-editor fieldset { padding:16px; min-width:0; }
+#blueprint-editor textarea { min-height:80px; }
+.blueprint-score-warning { padding:16px; border:2px solid #9d5633; background:#fff3df; color:#653819; }
+.blueprint-score-warning[hidden] { display:none; }
+.blueprint-score-warning .actions { margin-top:12px; }
+#blueprint-editor .practice-counts { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); align-items:end; gap:16px; }
+#blueprint-editor .practice-counts > label { display:flex; flex-direction:column; gap:8px; margin:0; min-width:0; }
+#blueprint-editor .practice-counts :is(input,select) { box-sizing:border-box; width:100%; height:52px; min-height:52px; margin:0; padding:10px 12px; line-height:1.5; font:inherit; }
+@media(max-width:900px) { #blueprint-editor .practice-counts { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:550px) { #blueprint-editor .practice-counts { grid-template-columns:minmax(0,1fr); } }
+#blueprint-scope { max-height:320px; overflow:auto; }
+.diagnostic-board { margin:24px 0; }
+.diagnostic-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+.diagnostic-card { padding:20px; border:1px solid var(--line); background:#fffdf8; margin-bottom:18px; min-width:0; }
+.metric-bar-row { display:grid; grid-template-columns:minmax(85px,1fr) minmax(60px,2fr) minmax(90px,1fr); align-items:center; gap:10px; margin:12px 0; font-size:.9rem; }
+.metric-track { height:14px; background:#e6ebe8; border-radius:3px; overflow:hidden; }
+.metric-track > span { display:block; height:100%; background:#609276; }
+.heat-table button { width:100%; min-height:50px; font-size:.85rem; border:1px solid #aaa; }
+.heat-low { background:#f3dad7; color:#722f2c; }
+.heat-mid { background:#f4e6c6; color:#654b1f; }
+.heat-high { background:#dfeadd; color:#305238; }
+.heat-empty { background:#eeefee; color:#525b56; }
+@media(max-width:700px) { .diagnostic-grid { grid-template-columns:1fr; } .metric-bar-row { grid-template-columns:1fr; gap:5px; } .diagnostic-card { padding:14px; } }

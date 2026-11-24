@@ -1,0 +1,19 @@
+[hidden] { display:none !important; }
+.task-navigation {position:sticky;top:0;z-index:8;display:flex;flex-wrap:wrap;gap:.6rem;padding:1rem 0;border-bottom:1px solid #d1dbd5;background:#faf8f3;}
+.task-navigation button[aria-current="page"], [data-train-choice][aria-pressed="true"] {background:#5e8f73;color:white;}
+.task-page {min-width:0;} .study-location {color:#55605a;margin:1rem 0;}
+.question-confidence {display:flex;gap:.45rem;align-items:center;flex-wrap:wrap;border-top:1px dashed #c5d3cb;padding-top:1rem;margin-top:1rem;}
+.question-confidence button {padding:.45rem .7rem;min-height:40px;font-size:.9rem;}
+.question-confidence button[aria-pressed="true"] {background:#5e8f73;color:#fff;}
+.question-confidence button:disabled {opacity:1;cursor:default;}
+.confidence-status {font-size:.85rem;color:#55615a;}
+.confidence-band {display:grid;grid-template-columns:9rem minmax(80px,1fr) auto;gap:.7rem;margin:1.2rem 0;padding:1rem;background:#f1f6f3;}
+.confidence-band progress {width:100%;align-self:center;accent-color:#5e8f73;}
+.confidence-band small,.confidence-band details {grid-column:1/-1;}
+.confidence-band details button {display:block;text-align:left;margin:.5rem 0;width:100%;overflow-wrap:anywhere;}
+.confidence-report select {max-width:20rem;}
+.task-return {padding:.8rem;background:#eef3f0;border-left:3px solid #5e8f73;margin-bottom:1rem;}
+.single-question-dialog {width:min(900px,94vw);max-height:90dvh;overflow:auto;}
+button:focus-visible,a:focus-visible,select:focus-visible {outline:3px solid #609075;outline-offset:3px;}
+@media(max-width:640px){.task-navigation {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));}.task-navigation button{padding:.6rem;}.confidence-band{grid-template-columns:1fr;}.question-confidence>span:first-child{flex-basis:100%;}.single-question-dialog{width:100%;max-width:100%;height:100dvh;max-height:100dvh;margin:0;padding:1rem;border-radius:0;}}
+@media(prefers-reduced-motion:reduce){.task-page *{scroll-behavior:auto!important;animation:none!important;transition:none!important;}}

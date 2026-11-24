@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>过了么 · 大学生复习助手</title><link rel="icon" href="data:,"><link rel="stylesheet" href="/static/styles.css"><script src="/static/app.js?v=52" defer></script><link rel="stylesheet" href="/static/paper.css">
+<link rel="stylesheet" href="/static/constellation.css">
+<link rel="stylesheet" href="/static/controls.css">
+<script src="/static/notebook.js" defer></script>
+<link rel="stylesheet" href="/static/workbench.css">
+<link rel="stylesheet" href="/static/sidebar.css">
+<link rel="stylesheet" href="/static/vendor/katex/katex.min.css">
+<link rel="stylesheet" href="/static/math-materials.css">
+<script src="/static/vendor/katex/katex.min.js" defer></script>
+<script src="/static/vendor/katex/contrib/auto-render.min.js" defer></script>
+<link rel="stylesheet" href="/static/study-actions.css">
+<link rel="stylesheet" href="/static/pass-theme.css?v=52">
+</head>
+<body>
+<div id="loading" class="loading">正在打开你的学习空间…</div>
+<section id="auth" class="auth" hidden>
+ <div class="intro">
+  <a class="brand" href="/">过了么<span class="brand-tag">考前自救站</span></a>
+  <div class="auth-copy"><span class="auth-kicker">今天也在努力，不挂科。</span><h1>逢考必过，<br>先翻两页。</h1><p>让散落的复习资料，在这里变成上岸的阶梯。</p></div>
+  <figure class="mascot-scene"><img class="auth-art" src="/static/assets/pass-mascot-cutout.png" alt="合掌微笑的小人坐在莲花与书本上，身边是打勾的试卷和铅笔" width="1536" height="1024" fetchpriority="high"></figure>
+ </div>
+ <div class="auth-panel"><div class="tabs"><button id="login-tab" class="selected" type="button">登录</button><button id="register-tab" type="button">注册账户</button></div><h2 id="auth-title">欢迎回来</h2><p class="muted" id="auth-subtitle">欢迎回来，今天再拿下一点。</p>
+ <form id="auth-form"><label>用户名<input name="username" required minlength="3" maxlength="50" pattern="[A-Za-z0-9_]+" autocomplete="username" autocapitalize="none" spellcheck="false" aria-describedby="username-case-note" placeholder="3–50位字母、数字或下划线"></label><p id="username-case-note" class="footnote">用户名区分大小写，须与注册时一致。</p><label>密码<input id="password" name="password" type="password" required minlength="10" maxlength="128" autocomplete="current-password" placeholder="至少10位"></label><p id="auth-message" role="status"></p><button id="auth-submit" class="primary wide">登录</button></form><p class="footnote">资料与课程按账户独立保存。</p></div>
+</section>
+<div id="workspace" hidden>
+ <aside><a class="brand" href="/">过了么</a><p class="nav-label">学习空间</p><div class="active-nav">▣ 我的课程</div><div class="sidebar-note">You will pass all exams!</div><div class="account"><span id="username"></span><button id="logout" class="quiet">退出登录</button></div></aside>
+ <main><header><span class="muted">学习空间 / 我的课程</span><span class="badge">考前自救站</span></header><section class="hero"><div><h1>我的课程</h1><p class="muted">按课程整理学习，从这里开始你的复习计划。</p></div><button id="create" class="primary">＋ 新建课程</button></section>
+ <div class="toolbar"><span id="count">正在加载…</span><label class="search"><span class="sr-only">搜索课程</span><input id="search" placeholder="搜索课程名称或说明" type="search"></label></div>
+ <p id="workspace-message" role="status"></p><div id="cards" class="cards"></div><div id="empty" class="empty" hidden><div class="empty-icon">▤</div><h2 id="empty-title">你的第一门课程，从这里开始</h2><p id="empty-text">创建课程名称与说明，保存后可以随时回来编辑。</p><button id="empty-create" class="primary">创建第一门课程</button></div>
+ <section class="roadmap"><strong>别急着许愿，先把这章拿下。</strong><p>整理资料 → 翻阅知识 → 练习与考试 → 回看错题 → 记录成长</p><small>今天学一点，上岸近一点</small></section></main>
+</div>
+<dialog id="course-dialog"><form id="course-form"><div class="dialog-heading"><h2 id="dialog-title">新建课程</h2><button id="close-dialog" type="button" class="quiet" aria-label="关闭">✕</button></div><label>课程名称<input name="name" required maxlength="100" placeholder="例如：数据库原理"></label><label>课程说明 <span class="muted">（选填）</span><textarea name="description" maxlength="2000" rows="4" placeholder="记录这门课的学习目标或复习计划"></textarea></label><p id="course-message" role="status"></p><button id="course-submit" class="primary wide">保存课程</button></form></dialog>
+<main id="material-view" hidden>
+ <header><button id="back-courses" type="button">← 返回课程</button><span class="badge">考前自救站</span></header>
+ <section class="hero"><div><h1 id="material-course-title"></h1><p class="muted">上传资料 → 提取文字 → 核对章节与复习范围</p></div></section>
+ <section class="panel"><h2>添加学习资料</h2><p class="muted">支持 PDF、DOCX、PPTX、JPG、PNG；单文件不超过 30MB，每个账户总计 500MB。旧版 DOC、PPT 请先另存为新格式。</p><form id="upload-form"><label>选择资料<input id="material-file" type="file" accept=".pdf,.docx,.pptx,.jpg,.jpeg,.png" required></label><button id="upload-button" class="primary">上传资料</button></form><p class="footnote">当前可提取文档中的文字；图片和扫描件暂未接入自动 OCR，可在资料中人工录入已核对的文字。提取或录入后，请设置复习范围并保存确认，再用于 AI 大纲。</p></section>
+ <p id="material-message" role="status"></p><section id="material-list" class="material-list" aria-label="已上传资料"></section>
+ <section id="material-detail" class="panel" hidden><h2 id="detail-title"></h2><p id="detail-note" class="muted"></p>
+ <div class="detail-grid"><section><h3>原文预览</h3><label>原文位置<select id="unit-select"></select></label><pre id="unit-text"></pre></section>
+ <section><h3>章节与复习范围</h3><p class="muted">填写章节名，选择章节起始位置；勾选需要纳入复习的章节。没有识别出标题时，可以手动添加。</p><form id="chapters-form"><div id="chapter-rows"></div><div class="actions"><button id="add-chapter" type="button">＋ 添加章节</button><button id="save-chapters" class="primary">保存并确认章节</button></div></form></section></div></section>
+</main>
+<script src="/static/outlines.js?v=53" defer></script>
+<script src="/static/chapters.js" defer></script>
+<script src="/static/review.js" defer></script>
+<script src="/static/practice.js" defer></script>
+<script src="/static/exams.js" defer></script>
+<script src="/static/mistakes.js" defer></script>
+<script src="/static/batch-ui.js?v=53" defer></script>
+<script src="/static/report.js" defer></script>
+<script src="/static/study-ui.js" defer></script>
+<script src="/static/learning-tools.js" defer></script>
+<script src="/static/page-vision.js" defer></script>
+<script src="/static/blueprints.js" defer></script>
+<script src="/static/diagnostics.js" defer></script>
+<script src="/static/confidence.js" defer></script>
+<script src="/static/workbench.js" defer></script>
+<script src="/static/sidebar.js" defer></script>
+<script src="/static/result-mistakes.js" defer></script>
+<script src="/static/account-sidebar.js" defer></script>
+<script src="/static/math-display.js" defer></script>
+<script src="/static/math-materials.js" defer></script>
+<script src="/static/study-actions.js" defer></script>
+<script src="/static/session-startup.js" defer></script>
+</body></html>

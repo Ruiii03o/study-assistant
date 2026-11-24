@@ -1,0 +1,75 @@
+/* 过了么 · butter paper, sage surfaces, evergreen actions. */
+:root{--ink:#293b32;--muted:#667368;--paper:#fffef9;--desk:#f3f4ed;--line:#d9dfd3;--green:#3d6551;--violet:#3d6551;--night:#273e32;--sage:#3d6551;--gold:#edce78;color:var(--ink);background:var(--desk)}
+body{background:var(--desk);scrollbar-color:#a3b09f #eef0e8}
+::selection{background:#e9dca9;color:#293b32}
+h1,h2,h3,.brand{color:var(--ink)}
+.brand{font-family:"Segoe UI","Microsoft YaHei",sans-serif;font-weight:800;letter-spacing:-.04em}
+.brand:before{content:'✓';display:inline-grid;place-items:center;width:28px;height:28px;border:0;border-radius:10px;background:#edce78;color:#344a37;box-shadow:none;transform:rotate(-8deg);font:800 20px sans-serif;vertical-align:2px;margin-right:9px}
+button{background:#e8ede2;color:#364f3e;border-radius:8px}button:hover{background:#dce5d5}
+.primary,.card .primary{background:#3d6551;color:#fffef8;box-shadow:0 3px 8px #28493618}.primary:hover,.card .primary:hover{background:#2d513e}
+.quiet{background:transparent;color:var(--muted)}
+button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid #70947b;outline-offset:3px}
+input,textarea,select{border-color:var(--line);background:#fffefb;color:var(--ink)}input:focus,textarea:focus,select:focus{outline-color:#70947b;border-color:#70947b}
+.badge,.account-role{background:#f2e7bf;border-color:#e3d6a5;color:#5e5738}
+.muted,.footnote{color:var(--muted)}
+/* The illustration and the form share one surface, with room to breathe. */
+.auth{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(360px,.8fr);align-items:center;gap:clamp(32px,5vw,90px);min-height:100svh;padding:44px max(5vw,24px);background:radial-gradient(ellipse at 15% 38%,#f6e6a7aa,transparent 48%),radial-gradient(ellipse at 92% 85%,#c9d8bc88,transparent 48%),#f7f5eb;overflow:hidden}
+.auth .intro{display:flex;flex-direction:column;min-height:0;max-width:740px;padding:0;gap:0;background:none;overflow:visible;color:var(--ink);isolation:auto}
+.auth .intro:before,.auth .intro:after{display:none}
+.auth .intro .brand{color:#314b39;font-size:1.8rem;text-decoration:none}
+.brand-tag{display:inline-block;font-size:.72rem;font-weight:500;letter-spacing:.08em;border-left:1px solid #b9c1aa;padding-left:14px;margin-left:16px;vertical-align:middle;color:#6a755f}
+.auth .intro .auth-copy{margin-top:38px;z-index:auto}
+.auth-kicker{color:#6b785e;font-size:.78rem;letter-spacing:.12em}
+.auth .intro h1{font-family:"Segoe UI","Microsoft YaHei",sans-serif;font-weight:800;font-size:clamp(2.5rem,4.2vw,4.3rem);line-height:1.23;letter-spacing:-.045em;color:#304c38;margin:14px 0 18px;text-shadow:none}
+.auth .intro p:not(.eyebrow){color:#64725d;text-shadow:none;font-size:.96rem;line-height:1.9;max-width:36em;margin-bottom:0}
+.mascot-scene{position:relative;width:100%;max-width:610px;margin:6px 0 0}
+.auth .intro .auth-art{position:static;display:block;width:100%;height:auto;object-fit:contain;pointer-events:none;mix-blend-mode:normal}
+.mascot-scene figcaption{position:absolute;bottom:3%;right:0;color:#667259;font-size:.76rem;transform:rotate(-4deg);background:#fffdf4dd;border:1px solid #e6dec7;padding:7px 14px;border-radius:5px}
+.auth .intro .steps{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 0}
+.auth .intro .steps span{background:#fffdf57d;border:1px solid #dce0ca;color:#657459;font-size:.74rem;padding:4px 12px;border-radius:30px}
+.auth .intro small{display:block;font:normal .78rem/1.7 "Microsoft YaHei",sans-serif;color:#7b806e;letter-spacing:0;text-shadow:none;margin-top:15px}
+.auth .auth-panel{position:relative;width:100%;max-width:460px;justify-self:center;padding:38px clamp(24px,3vw,44px);margin:36px 0;background:#fffef9ef;border:1px solid #ffffff;border-radius:24px;box-shadow:0 24px 70px #5c71531c,0 3px 10px #7f83580a;backdrop-filter:blur(14px)}
+.auth .auth-panel:before{content:'先登录，再上岸。';position:absolute;left:26px;top:-19px;padding:7px 17px;background:#edce78;color:#605132;transform:rotate(-4deg);font:500 .8rem/1.6 "Microsoft YaHei",sans-serif;letter-spacing:.03em;border-radius:5px;box-shadow:0 3px 9px #8d7a3720}
+.auth .auth-panel:after{display:none}
+.auth .auth-panel .tabs{display:flex;gap:6px;padding:4px;border:0;border-radius:11px;background:#eff2e9;margin:12px 0 30px}
+.auth .auth-panel .tabs button{flex:1;min-height:42px;border:0;border-radius:8px;background:transparent;color:#77816e;font-size:.9rem}
+.auth .auth-panel .tabs .selected{background:#fffef9;color:#365a43;box-shadow:0 2px 6px #3d553617;font-weight:650}
+.auth .auth-panel h2{font-family:"Microsoft YaHei",sans-serif;font-size:1.65rem;font-weight:700;margin:0 0 8px}
+.auth .auth-panel #auth-subtitle{font-size:.9rem;margin-bottom:28px;color:#75806f}
+.auth .auth-panel label{color:#47583e;font-size:.9rem;font-weight:600}
+.auth .auth-panel input{min-height:50px;margin-top:8px;background:#fbfcf7;border:1px solid #dce2d3;border-radius:9px;font-weight:400;font-size:.9rem}
+.auth .auth-panel .footnote{font-size:.72rem;color:#75806e;line-height:1.75}
+.auth .auth-panel #username-case-note{margin-top:-6px;margin-bottom:20px}
+.auth .auth-panel .primary{min-height:50px;margin-top:12px;border-radius:9px;font-weight:650;letter-spacing:.08em}
+.auth .auth-panel> .footnote{text-align:center;margin:22px 0 0}
+/* Quiet study surfaces carry the same colors without decorative clutter. */
+#workspace>aside,#workspace.course-mode>aside{background:#edf0e6;color:#43583f;border-right:1px solid #d8dfce}
+#workspace>aside .brand,#workspace.course-mode>aside .brand{color:#304d38}
+#workspace>aside .nav-label,#workspace>aside .sidebar-note,#workspace>aside .account,#workspace>aside .account .quiet{color:#67765f}
+#workspace>aside #username,#workspace.course-mode>aside #username{color:#304f39}
+.active-nav,.course-mode .task-navigation button[aria-current="page"]{background:#dce6d3;color:#34533e;border-color:#c8d6bd}
+.course-mode .task-navigation button[aria-current="page"]:before{background:#517856}
+.course-mode .task-navigation button:hover{background:#e3eadb}
+.course-mode .task-navigation button,.course-sidebar-title{color:#405b44}
+#course-resume{background:#e3eadb;color:#405e45}#course-resume small{color:#6b7c62}
+.account,.course-continuation,.course-mode>aside .account{border-color:#d2dbc7}
+.card,.card[data-tone='0']{--folder:#e6ecd9;--folder-edge:#bfccab;--folder-ink:#57734b}
+.card[data-tone='1']{--folder:#f2ead1;--folder-edge:#d8c99f;--folder-ink:#8b7741}
+.card[data-tone='2']{--folder:#f2e3da;--folder-edge:#d9bfb0;--folder-ink:#996d59}
+.card[data-tone='3']{--folder:#e0e9df;--folder-edge:#b6c9b4;--folder-ink:#517452}
+.card h2{color:var(--ink)}.hero h1:after{border-color:#bcac72}
+.knowledge-book{background:#eaf0e3;border-color:#cbd8bd}.knowledge-page{background:#fffef9;border-color:#dddcc8;box-shadow:0 5px 16px #3e542011}
+.knowledge-page:before{background:#759367}.knowledge-page h3,.knowledge-page .page-number{color:#527346}.knowledge-page .hand-note{color:#7b714f}
+.panel,.practice-question{background:#fffef9;border-color:#dde2d4}
+.report-table th{background:#e6ecdf}.report-table td{border-color:#dce2d5}
+@media(min-width:1600px){.auth{padding-inline:max(8vw,calc((100vw - 1400px)/2))}}
+@media(max-width:900px){.auth{gap:28px;grid-template-columns:minmax(0,1fr) minmax(320px,.9fr);padding:30px}.brand-tag{display:none}.auth .intro h1{font-size:2.7rem}.auth .auth-panel{padding:30px 24px}}
+@media(max-width:700px){.auth{display:flex;flex-direction:column;gap:0;padding:26px 22px 40px}.auth .intro{width:100%;max-width:460px}.auth .intro .brand{font-size:1.5rem}.auth .intro .auth-copy{margin-top:24px}.auth .intro h1{font-size:2.35rem}.auth .intro h1 br{display:none}.auth .intro p:not(.eyebrow){font-size:.85rem}.mascot-scene{width:68%;align-self:center;margin-top:0}.mascot-scene figcaption{font-size:.65rem;right:-36px}.auth .intro .steps,.auth .intro small{display:none}.auth .auth-panel{margin:22px 0 0;border-radius:20px}.auth .auth-panel .tabs{margin-bottom:22px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
+/* Exam-paper encouragement, separate from navigation. */
+#workspace > aside .sidebar-note{position:relative;display:block;margin:32px 3px;padding:56px 18px 26px;background:repeating-linear-gradient(transparent 0 31px,#d9dfd044 31px 32px),#fffef6;border:1px solid #d6dccb;border-radius:3px 3px 18px 3px;box-shadow:3px 5px 0 #dce3d3;transform:rotate(-2deg);color:#3d6551;font:700 1.1rem/1.7 Georgia,serif;letter-spacing:.01em;}
+#workspace > aside .sidebar-note:before{content:'100';position:absolute;top:10px;right:15px;color:#ba6653;font:italic 700 1.5rem Georgia,serif;border-bottom:2px solid #ba6653;transform:rotate(-10deg);}
+#workspace > aside .sidebar-note:after{content:'✓';position:absolute;top:12px;left:18px;color:#789062;font:bold 1.5rem sans-serif;}
+#workspace.course-mode > aside .sidebar-note{display:none;}
+@media(max-width:800px){#workspace > aside .sidebar-note{display:none;}}

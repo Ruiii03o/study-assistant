@@ -1,0 +1,8 @@
+.math-material-dialog {width:min(1400px,96vw);max-width:96vw;}
+.math-review-columns {display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:start;}
+.math-review-columns img {width:100%;height:auto;position:sticky;top:0;}
+.math-review-columns textarea {width:100%;font-family:monospace;font-size:.9rem;}
+.math-preview {white-space:pre-wrap;padding:16px;background:#faf8f1;border:1px solid #d7e0db;overflow-wrap:anywhere;}
+.katex-display {overflow-x:auto;overflow-y:hidden;padding:8px 0;max-width:100%;}
+.katex {font-size:1.05em;}
+@media(max-width:800px){.math-review-columns {grid-template-columns:1fr;}.math-review-columns img {position:static;max-height:65vh;object-fit:contain;}}

@@ -1,0 +1,5 @@
+{
+  "url": "https://YOUR_PROVIDER_HOST/v1/chat/completions",
+  "model": "YOUR_MODEL_NAME",
+  "api_key": ""
+}

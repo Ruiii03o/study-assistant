@@ -1,0 +1,58 @@
+/* Course navigation replaces the old sidebar contents; never adds a second rail. */
+#workspace.course-mode > aside {width:220px;padding:28px 16px 20px;background:#f8f6f1;color:#37453d;border-right:1px solid #dbe3de;overflow-y:auto;z-index:30;}
+#workspace.course-mode > aside .brand {color:#394a40;padding:0 12px;font-size:1.35rem;}
+.course-mode > aside > .nav-label,.course-mode > aside > .active-nav,.course-mode > aside > .sidebar-note {display:none;}
+.course-mode #material-view {margin-left:220px;max-width:1650px;padding:28px clamp(24px,4vw,64px);}
+.course-sidebar-pane {margin-top:28px;min-width:0;}
+.course-sidebar-top {display:flex;align-items:center;justify-content:space-between;gap:8px;}
+.course-list-back {background:none;padding:8px 12px;color:#65726b;font-size:.88rem;text-align:left;}
+.course-sidebar-caption {margin:26px 12px 6px;color:#737d77;font-size:.75rem;letter-spacing:.08em;}
+.course-sidebar-title {margin:0 12px 28px;font-family:inherit;font-size:1rem;line-height:1.6;font-weight:600;overflow-wrap:anywhere;}
+.course-mode .task-navigation {position:static;display:flex;flex-direction:column;align-items:stretch;gap:6px;background:none;border:0;padding:0;margin:0;}
+.course-mode .task-navigation button {position:relative;display:flex;align-items:center;gap:12px;width:100%;min-height:46px;padding:11px 14px;border-radius:6px;background:transparent;color:#59665f;text-align:left;font-size:.95rem;font-weight:400;box-shadow:none;}
+.course-mode .task-navigation button:hover {background:#edf3f0;filter:none;}
+.course-mode .task-navigation button[aria-current="page"] {background:#e7f0eb;color:#4e7e63;font-weight:650;}
+.course-mode .task-navigation button[aria-current="page"]:before {content:'';position:absolute;left:0;top:12px;bottom:12px;width:3px;border-radius:3px;background:#6f9a82;}
+.task-navigation svg {width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
+.course-continuation {border-top:1px solid #dbe3de;margin-top:28px;padding-top:18px;}
+#course-resume {display:flex;flex-direction:column;align-items:flex-start;gap:5px;width:100%;padding:12px 14px;background:#edf3f0;color:#4f725e;font-size:.95rem;}
+#course-resume small {font-size:.78rem;color:#6f8076;}
+.course-mode > aside .account {margin-top:30px;padding:18px 12px 0;border-top:1px solid #dbe3de;color:#59665f;gap:6px;}
+.course-mode > aside .account button {color:#59665f;background:none;text-align:left;padding:6px 0;}
+.course-mode #material-view > .hero {margin:32px 0 28px;}
+.course-mode #material-view > .hero h1 {font-size:clamp(1.8rem,3vw,2.5rem);}
+.course-mode #material-view > .hero h1:after {display:none;}
+.course-mode #material-view > header .badge {display:none;}
+.course-menu-toggle {background:transparent;border:1px solid #d3ddd7;padding:7px 12px;font-size:.85rem;min-height:40px;}
+.course-menu-close {display:none;}
+.course-sidebar-collapsed > aside {transform:translateX(-100%);visibility:hidden;}
+.course-mode.course-sidebar-collapsed #material-view {margin-left:0;}
+.course-menu-shade {display:none;}
+@media(max-width:800px){
+ #workspace.course-mode > aside {position:fixed;inset:0 auto 0 0;width:min(280px,85vw);height:100dvh;display:flex;flex-direction:column;align-items:stretch;gap:0;transform:translateX(-100%);visibility:hidden;padding:26px 18px;z-index:50;}
+ #workspace.course-mode.course-menu-open > aside {transform:none;visibility:visible;}
+ .course-mode #material-view {margin-left:0;padding:20px 16px;}
+ .course-mode .task-navigation {display:flex;}
+ .course-menu-close {display:block;background:none;padding:8px;font-size:.8rem;}
+ .course-menu-shade:not([hidden]) {display:block;position:fixed;inset:0;z-index:40;border:0;border-radius:0;background:#24312a66;cursor:default;}
+ body.course-menu-lock {overflow:hidden;}
+ .course-mode > aside .account {margin-left:0;display:flex;flex-direction:column;align-items:flex-start;}
+ .course-mode #material-view > .hero {margin:26px 0 22px;}
+}
+@media print{#workspace.course-mode > aside,.course-menu-toggle,.course-menu-shade{display:none!important;}.course-mode #material-view{margin:0;padding:0;}}
+
+/* Personal identity and administrator tools are separate groups. */
+#workspace > aside .account {display:flex;flex-direction:column;align-items:stretch;}
+.account-identity {display:flex;align-items:center;flex-wrap:wrap;gap:8px;padding:12px 0 6px;}
+#workspace > aside #username {font-weight:750;color:#e4efe9;overflow-wrap:anywhere;}
+#workspace.course-mode > aside #username {color:#4e7e63;}
+.account-role {font-size:.7rem;padding:2px 7px;border-radius:4px;background:#e7f0eb;color:#4e7e63;}
+.account-actions {display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;}
+#workspace > aside .account-actions button {font-size:.85rem;font-weight:400;white-space:nowrap;}
+.account-admin-section {border-bottom:1px solid #b8c6be66;padding-bottom:16px;margin-bottom:8px;}
+.account-section-label {font-size:.75rem;opacity:.8;margin:0 0 8px;}
+#workspace > aside .account #admin-users-button {width:100%;min-height:44px;border:0;background:none;box-shadow:none;font-weight:400;text-align:left;padding:9px 12px;border-radius:6px;color:inherit;}
+#workspace > aside .account #admin-users-button:hover {background:#7fa28e22;}
+#workspace > aside .account button:focus-visible {outline:2px solid #81b196;outline-offset:3px;}
+
+.confidence-insights button {display:block;max-width:100%;text-align:left;white-space:normal;overflow-wrap:anywhere;margin-top:8px;}
